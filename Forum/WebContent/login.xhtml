@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>login</title>
+	<style>
+body {
+	background-color: #C71585;
+}
+
+f {
+	font-family: "Times New Roman", Times, serif;
+	background-color: #8B008B;
+}
+
+#loginForm {
+	background-color: #8B008B;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 120px;
+	top: 120px;
+	font-family: "Times New Roman", Times, serif;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form id="loginForm">
+
+		<table border="1">
+           <tr>
+           <td>  <h:outputLink id="f" value="registration.xhtml">REGISTRATION</h:outputLink></td>
+             </tr>
+			<tr>
+				<td><h:outputText value="Username" /></td>
+				<td><h:inputText id="username" value="#{loginBean.uname}"></h:inputText></td>
+				<h:message for="username"></h:message>
+			</tr>
+			<tr>
+				<td><h:outputText value="Password" /></td>
+				<td><h:inputSecret id="password" value="#{loginBean.password}"
+						feedback="false"></h:inputSecret></td>
+
+
+				<h:message for="password"></h:message>
+
+			</tr>
+
+			<tr>
+				<td><h:commandButton action="#{loginBean.loginProject()}"
+						value="Login" update="loginForm" ajax="true"></h:commandButton></td>
+
+			</tr>
+		</table>
+
+
+	</h:form>
+	<p>
+		<h:outputLink value="home.xhtml">Home</h:outputLink>
+	</p>
+</h:body>
+</html>
+

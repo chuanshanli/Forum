@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14753846686647" configfile="/Forum/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Calculator.xhtml" x="122" y="178" id="pf14753852051258" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" path="/Calculator.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="result.xhtml" x="122" y="562" id="pf147538520512510" referenceLink="//@navigationRule.5/@fromViewId|" path="/result.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registration.xhtml" x="338" y="1026" id="pf147538520512611" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf147539033057814 pf14756727266594" path="/registration.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" x="770" y="1431" id="pf147538520512613" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14754933191694" inlinks="pf14754137653560" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="error.xhtml" x="554" y="845" id="pf147539033057915" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf147539033057814" path="/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="554" y="1229" id="pf14754137653571" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf14754137653560" inlinks="pf14756695696632 pf14756695696633 pf14756727266594" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="forumpage.xhtml" x="338" y="1431" id="pf14754137653572" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" outlinks="pf14754967249709 pf14756695696632" inlinks="pf14754933191694 pf14756689111750" path="/forumpage.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="comments.xhtml" x="122" y="946" id="pf14754939208666" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" path="/Comments.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="comments.xhtml" x="122" y="1330" id="pf14754954686958" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf147551163862810 pf147551192253411 pf14756689111750 pf14756689111751 pf14756695696633" inlinks="pf14754967249709 pf147551163862810 pf147551192253411 pf14756689111751" path="/comments.xhtml"/>
+  <links id="pf147539033057814" target="pf147539033057915" source="pf147538520512611" outcome="error"/>
+  <links id="pf14754137653560" target="pf147538520512613" source="pf14754137653571" outcome="home"/>
+  <links id="pf14754933191694" target="pf14754137653572" source="pf147538520512613" outcome="forumpage"/>
+  <links id="pf14754967249709" target="pf14754954686958" source="pf14754137653572" outcome="comments"/>
+  <links id="pf14756689111750" target="pf14754137653572" source="pf14754954686958" outcome="back"/>
+  <links id="pf14756695696632" target="pf14754137653571" source="pf14754137653572" outcome="log"/>
+  <links id="pf14756695696633" target="pf14754137653571" source="pf14754954686958" outcome="log"/>
+  <links id="pf14756727266594" target="pf14754137653571" source="pf147538520512611" outcome="success"/>
+  <links id="pf147551163862810" target="pf14754954686958" source="pf14754954686958" outcome="comments">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf147551192253411" target="pf14754954686958" source="pf14754954686958" outcome="refresh">
+    <bendPoints d1Height="-66" d2Height="-66"/>
+    <bendPoints d1Width="-94" d1Height="-66" d2Width="-94" d2Height="-66"/>
+    <bendPoints d1Width="-94" d2Width="-94"/>
+  </links>
+  <links id="pf14756689111751" target="pf14754954686958" source="pf14754954686958" outcome="v">
+    <bendPoints d1Height="-96" d2Height="-96"/>
+    <bendPoints d1Width="-124" d1Height="-96" d2Width="-124" d2Height="-96"/>
+    <bendPoints d1Width="-124" d2Width="-124"/>
+  </links>
+</pageflow:Pageflow>

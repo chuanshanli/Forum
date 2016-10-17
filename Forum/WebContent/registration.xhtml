@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Registration Page</title>
+
+
+	<link rel="stylesheet" type="text/css"
+		href="\WebContent\resources\css\registration.css" />
+	<style type="text/css">
+p {
+	text-align: center;
+	color: red;
+}
+
+body {
+	background-color: lightblue;
+}
+
+#registerForm {
+	background-color: yellow;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 80px;
+	top: 80px;
+}
+</style>
+</h:head>
+<h:body>
+	<p>hello</p>
+	<f:view>
+		<h:form id="registerForm">
+			<table>
+				<tr>
+					<td><h:outputText value="Enter Your username:" /></td>
+					<td><h:inputText id="fname" value="#{user.username}"
+							required="true" requiredMessage="Please enter your first name" /></td>
+					<td><h:message for="fname" style="color:red" /></td>
+				</tr>
+				<tr>
+					<td><h:outputText value="Enter Your password:" /></td>
+					<td><h:inputSecret id="lname" value="#{user.password}"
+							required="true" requiredMessage="Please enter your last name" /></td>
+					<td><h:message for="lname" style="color:red" /></td>
+				</tr>
+				<tr>
+					<td><h:selectOneListbox value="#{user.town}">
+							<f:selectItem itemValue="Sofia" itemLabel="Sofia" />
+							<f:selectItem itemValue="Smolain" itemLabel="Smolian" />
+							<f:selectItem itemValue="Kaspichan" itemLabel="Kaspichan"></f:selectItem>
+						</h:selectOneListbox></td>
+
+
+				</tr>
+				<tr>
+					<td><h:selectOneRadio value="#{user.gender}">
+							<f:selectItem itemValue="male" itemLabel="male" />
+							<f:selectItem itemValue="female" itemLabel="female" />
+						</h:selectOneRadio></td>
+
+				</tr>
+
+				<tr>
+					<td />
+					<td><h:commandButton value="Register"
+							action="#{daoController.add(user)}" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLink value="home.xhtml">Home</h:outputLink></td>
+				</tr>
+			</table>
+		</h:form>
+	</f:view>
+</h:body>
+</html>

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Registration Page</title>
+	<style type="text/css">
+#f1 {
+	text-align: center;
+	background-color: blue;
+}
+
+body {
+	background-color: #C71585;
+}
+
+#comments {
+	background-color: lightblue;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+}
+
+#D {
+	color: red;
+	font-family: "Times New Roman", Times, serif;
+}
+
+#l {
+	background-color: red;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+</style>
+</h:head>
+<body>
+	
+<fieldset>
+		<h:form id="comments">
+			<div id="l"></div>
+			<h:commandButton action="#{forumController.logout()}"
+				value="loggout"></h:commandButton>
+			<legend>
+				<h:outputText value="topic:"></h:outputText>
+				<h:outputText value="#{forumController.topicName}"></h:outputText>
+			</legend>
+
+			<h:outputText value="#{forumController.topicName}"></h:outputText>
+			<h:dataTable value="#{forumController.comments}" var="c">
+				<div id="D">
+					<h:column>
+						<h:outputText value="user:"></h:outputText>
+						<h:outputText value="#{c.user}"></h:outputText>
+					</h:column>
+					<h:column>
+						<h:outputText value="  comment  "></h:outputText>
+						<h:outputLabel value="#{c.comment}"></h:outputLabel>
+						<h:link value="#{c.comment}" outcome="c">
+
+						</h:link>
+					</h:column>
+
+					<h:column>
+						<h:outputText value="  date:  "></h:outputText>
+						<h:link value="#{c.date}" outcome="c">
+
+						</h:link>
+					</h:column>
+				</div>
+
+
+
+			</h:dataTable>
+			<table>
+				<tr>
+					<td><h:outputText value="yuor comment"></h:outputText></td>
+					<td><h:inputTextarea value="#{forumController.comment}"></h:inputTextarea></td>
+					<td><h:commandButton action="#{forumController.addComment()}"
+							value="add comment" update="comments" ajax="true"></h:commandButton></td>
+				</tr>
+				<tr>
+					<td><h:commandButton action="#{forumController.refresh()}"
+							value="refresh"></h:commandButton></td>
+					<td><h:commandButton action="#{forumController.back()}"
+							value="return the topics"></h:commandButton></td>
+				</tr>
+			</table>
+
+		</h:form>
+	</fieldset>
+</body>
+</html>

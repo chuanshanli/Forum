@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<title>forumpage</title>
+	<style>
+body {
+	background-color: #9932CC;
+}
+
+#f {
+	background-color: #DDA0DD;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 200px;
+	top: 200px;
+}
+
+#z {
+	background-color: green;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 180px;
+	top: 10px;
+}
+
+#l {
+	background-color: red;
+	border: 3px solid #73AD21;
+	position: absolute;
+	left: 100px;
+	top: 50px;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form id="z">
+		
+			<h:commandButton action="#{forumController.logout()}" value="loggout"></h:commandButton>
+		
+		</h:form>
+		
+
+
+	<h:form id="l">
+		<h:dataTable value="#{forumController.topics}" var="topic">
+
+			<h:column>
+
+				<h:outputText value="name of topic:"></h:outputText>
+				<h:link value="#{topic.nameTopic}" outcome="topic">
+
+
+				</h:link>
+			</h:column>
+			<h:column>
+				<h:outputText value="  name of creator:"></h:outputText>
+
+				<h:link value="#{topic.userCreator}" outcome="topic">
+
+				</h:link>
+			</h:column>
+
+			<h:column>
+				<h:outputText value="  date:"></h:outputText>
+				<h:link value="#{topic.date}" outcome="topic">
+
+				</h:link>
+			</h:column>
+			<h:column>
+				<h:commandButton
+					action="#{forumController.lookTopic(topic.nameTopic)}"
+					value="#{topic.nameTopic}"></h:commandButton>
+			</h:column>
+			<h:column>
+		
+
+			</h:column>
+
+		</h:dataTable>
+		<table>
+		<tr>
+		 		<td><h:outputText value="create topic"></h:outputText></td>
+			<td>	<h:inputText value="#{forumController.topicName}"></h:inputText></td>
+			<td>	<h:commandButton action="#{forumController.addTopic()}"></h:commandButton></td>
+				</tr>
+		</table>
+	</h:form>
+
+
+
+
+
+</h:body>
+
+</html>
